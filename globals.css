@@ -1,0 +1,36 @@
+@import "tailwindcss";
+:root{ --bg:#0b1120; }
+*{ scrollbar-width:thin; scrollbar-color:#334155 transparent; }
+body{ background:#0b1120; color:#e2e8f0; font-family:Inter,ui-sans-system,system-ui,sans-serif; }
+@keyframes pulse-dot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+@keyframes eq{0%,100%{height:8px}50%{height:28px}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.animate-marquee{animation:marquee 28s linear infinite}
+.eq-bar{animation:eq 0.7s ease-in-out infinite}
+input,select,textarea{outline:none}
+input:focus,select:focus,textarea:focus{border-color:#10b981 !important; box-shadow:0 0 0 3px rgba(16,185,129,.15)}
+.resume-input{width:100%;background:#0b1120;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 12px;font-size:13px;color:#e2e8f0}
+.resume-document{width:100%;max-width:794px;min-height:1050px;margin:auto;background:white;color:#172033;padding:48px 54px;box-shadow:0 18px 60px rgba(0,0,0,.3);font-family:Arial,sans-serif;font-size:12px;line-height:1.45}
+.resume-document .resume-header{text-align:center;border-bottom:2px solid #0e7490;padding-bottom:13px;margin-bottom:15px}
+.resume-document .resume-header h1{font-size:28px;line-height:1.1;font-weight:800;letter-spacing:.04em;color:#10283e;text-transform:uppercase}
+.resume-document .resume-header h2{font-size:13px;color:#0e7490;font-weight:700;margin-top:4px}
+.resume-contact{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 15px;margin-top:8px;font-size:10.5px;color:#475569}
+.resume-contact span:not(:last-child):after{content:" •";padding-left:10px;color:#94a3b8}
+.resume-document section{margin-top:14px;break-inside:avoid}
+.resume-document section>h3{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#0e7490;border-bottom:1px solid #94a3b8;padding-bottom:3px;margin-bottom:6px}
+.resume-document p{white-space:pre-line;color:#334155}
+.resume-document .resume-entry{margin-bottom:8px;break-inside:avoid}
+.resume-row{display:flex;justify-content:space-between;gap:20px}.resume-row b:last-child,.resume-row span:last-child{text-align:right;white-space:nowrap}.resume-muted{color:#64748b;font-size:11px}.resume-skills{font-weight:600}.resume-document small{color:#0e7490}
+.resume-placeholder{height:600px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#94a3b8;gap:5px;text-align:center;border:2px dashed #cbd5e1;border-radius:12px;margin-top:25px}
+.resume-classic .resume-header{border-color:#1e293b}.resume-classic .resume-header h2,.resume-classic section>h3,.resume-classic small{color:#1e293b}.resume-classic section>h3{text-align:center;border-bottom:1px solid #1e293b}
+.resume-compact{padding:34px 42px;font-size:11px;line-height:1.32}.resume-compact .resume-header{text-align:left}.resume-compact .resume-contact{justify-content:flex-start}.resume-compact section{margin-top:9px}.resume-compact .resume-entry{margin-bottom:5px}
+@media(max-width:700px){.resume-document{padding:28px 25px;min-height:900px}.resume-document .resume-header h1{font-size:22px}.resume-contact{gap:3px 7px}}
+@media print{
+ @page{size:A4;margin:0}
+ body.printing-resume{background:white!important}
+ body.printing-resume *{visibility:hidden!important}
+ body.printing-resume #resume-document,body.printing-resume #resume-document *{visibility:visible!important}
+ body.printing-resume #resume-document{position:absolute!important;left:0;top:0;width:210mm!important;max-width:none!important;min-height:297mm!important;box-shadow:none!important;margin:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .no-print{display:none!important}
+}
